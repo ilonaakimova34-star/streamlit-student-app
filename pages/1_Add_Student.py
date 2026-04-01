@@ -1,5 +1,6 @@
 import streamlit as st
 import psycopg2
+import re
 
 st.set_page_config(page_title="Add Student", page_icon="👤")
 
@@ -13,8 +14,7 @@ with st.form("add_student_form"):
     email = st.text_input("Student Email")
     submitted = st.form_submit_button("Add Student")
 
-        if submitted:
-        import re
+    if submitted:
         email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         is_valid_email = re.match(email_pattern, email)
 
